@@ -116,3 +116,10 @@ jobs:
 
       - name: run-tests
         run: .github/scripts/run-tests-rtl.sh
+
+      - name: upload-output
+        uses: actions/upload-artifact@v3
+        with:
+          name: waveforms
+          if: always()
+          path: ${{ steps.get-paths.outputs.LOCAL_CHIPYARD_DIR }}/sims/verilator
